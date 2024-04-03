@@ -16,13 +16,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final status = false;
+  String result = "";
   int _genNum(int num) {
     return num;
   }
 
   String _genSign(String sign) {
     return sign;
+  }
+
+  void clearAr() {
+    setState(() {
+      result == "";
+    });
+  }
+
+  void display(Object num) {
+    setState(() {
+      result += num.toString();
+    });
   }
 
   @override
@@ -37,12 +49,13 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   height: 50,
                   color: Colors.black,
                   child: Text(
-                    "",
+                    "$result",
                     style: TextStyle(fontSize: 32, color: Colors.white),
                   ),
                 )
@@ -55,7 +68,9 @@ class _MyAppState extends State<MyApp> {
                   width: 80,
                   height: 80,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      clearAr();
+                    },
                     child: Text(
                       _genSign("AC"),
                       style: TextStyle(fontSize: 24, color: Colors.black87),
@@ -128,7 +143,7 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () {
-                      _genNum(7);
+                      display(7);
                     },
                     child: Text(
                       "7",
@@ -146,7 +161,7 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () {
-                      _genNum(8);
+                      display(8);
                     },
                     child: Text(
                       "8",
@@ -164,7 +179,7 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () {
-                      _genNum(9);
+                      display(9);
                     },
                     child: Text(
                       "9",
@@ -181,7 +196,9 @@ class _MyAppState extends State<MyApp> {
                   width: 80,
                   height: 80,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      display("*");
+                    },
                     child: Text(
                       _genSign("*"),
                       style: TextStyle(fontSize: 28, color: Colors.white),
@@ -206,7 +223,7 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () {
-                      _genNum(4);
+                      display(4);
                     },
                     child: Text(
                       "4",
@@ -224,7 +241,7 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () {
-                      _genNum(5);
+                      display(5);
                     },
                     child: Text(
                       "5",
@@ -242,7 +259,7 @@ class _MyAppState extends State<MyApp> {
                   height: 80,
                   child: ElevatedButton(
                     onPressed: () {
-                      _genNum(6);
+                      display(6);
                     },
                     child: Text(
                       "6",
@@ -259,9 +276,11 @@ class _MyAppState extends State<MyApp> {
                   width: 80,
                   height: 80,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      display("-");
+                    },
                     child: Text(
-                      _genSign("-"),
+                      "-",
                       style: TextStyle(fontSize: 28, color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -283,9 +302,47 @@ class _MyAppState extends State<MyApp> {
                   width: 80,
                   height: 80,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      display(1);
+                    },
                     child: Text(
-                      _genNum(1).toString(),
+                      "1",
+                      style: TextStyle(fontSize: 28, color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.0),
+                        ),
+                        backgroundColor: Colors.grey[800]),
+                  ),
+                ),
+                Container(
+                  width: 80,
+                  height: 80,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      display(2);
+                    },
+                    child: Text(
+                      "2",
+                      style: TextStyle(fontSize: 28, color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.0),
+                        ),
+                        backgroundColor: Colors.grey[800]),
+                  ),
+                ),
+                Container(
+                  width: 80,
+                  height: 80,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      display(3);
+                    },
+                    child: Text(
+                      "3",
                       style: TextStyle(fontSize: 28, color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -301,39 +358,7 @@ class _MyAppState extends State<MyApp> {
                   child: ElevatedButton(
                     onPressed: () {},
                     child: Text(
-                      _genNum(2).toString(),
-                      style: TextStyle(fontSize: 28, color: Colors.white),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100.0),
-                        ),
-                        backgroundColor: Colors.grey[800]),
-                  ),
-                ),
-                Container(
-                  width: 80,
-                  height: 80,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      _genNum(3).toString(),
-                      style: TextStyle(fontSize: 28, color: Colors.white),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100.0),
-                        ),
-                        backgroundColor: Colors.grey[800]),
-                  ),
-                ),
-                Container(
-                  width: 80,
-                  height: 80,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      _genSign("+"),
+                      "+",
                       style: TextStyle(fontSize: 28, color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
@@ -353,9 +378,11 @@ class _MyAppState extends State<MyApp> {
                 width: 175,
                 height: 80,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    display(0);
+                  },
                   child: Text(
-                    _genNum(0).toString(),
+                    "0",
                     style: TextStyle(fontSize: 28, color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
